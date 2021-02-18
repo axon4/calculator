@@ -1,5 +1,5 @@
-const calculatorDisplay = document.querySelector('h1');
-const inputButtons = document.querySelectorAll('button');
+const calculatorDisPlay = document.querySelector('h1');
+const inPutButtons = document.querySelectorAll('button');
 const clearButton = document.getElementById('clear-button');
 
 const calculate = {
@@ -12,30 +12,31 @@ const calculate = {
 
 let firstValue = 0;
 let operatorValue = '';
-let awaitingNextValue = false;
+let aWaitingNextValue = false;
 
 function sendNumberValue(number) {
-	if (awaitingNextValue) {
-		calculatorDisplay.textContent = number;
-		awaitingNextValue = false;
+	if (aWaitingNextValue) {
+		calculatorDisPlay.textContent = number;
+		aWaitingNextValue = false;
 	} else {
-		const displayValue = calculatorDisplay.textContent;
-		calculatorDisplay.textContent = displayValue === '0' ? number : displayValue + number;
+		const displayValue = calculatorDisPlay.textContent;
+
+		calculatorDisPlay.textContent = displayValue === '0' ? number : displayValue + number;
 	};
 };
 
 function addDecimal() {
-	if (awaitingNextValue) {return};
+	if (aWaitingNextValue) return;
 
-	if (!calculatorDisplay.textContent.includes('.')) {
-		calculatorDisplay.textContent = `${calculatorDisplay.textContent}.`
+	if (!calculatorDisPlay.textContent.includes('.')) {
+		calculatorDisPlay.textContent = `${calculatorDisPlay.textContent}.`;
 	};
 };
 
 function useOperator(operator) {
-	const currentValue = Number(calculatorDisplay.textContent);
+	const currentValue = Number(calculatorDisPlay.textContent);
 
-	if (operatorValue && awaitingNextValue) {
+	if (operatorValue && aWaitingNextValue) {
 		operatorValue = operator;
 
 		return;
@@ -45,29 +46,30 @@ function useOperator(operator) {
 		firstValue = currentValue;
 	} else {
 		const calculation = calculate[operatorValue](firstValue, currentValue);
-		calculatorDisplay.textContent = calculation;
+
+		calculatorDisPlay.textContent = calculation;
 		firstValue = calculation;
 	};
 	
-	awaitingNextValue = true;
+	aWaitingNextValue = true;
 	operatorValue = operator;
 };
 
-function reset() {
+function reSet() {
 	firstValue = 0;
 	operatorValue = '';
-	awaitingNextValue = false;
-	calculatorDisplay.textContent = '0';
+	aWaitingNextValue = false;
+	calculatorDisPlay.textContent = '0';
 };
 
-inputButtons.forEach(inputButton => {
-	if (inputButton.classList.length === 0) {
-		inputButton.addEventListener('click', () => sendNumberValue(inputButton.value));
-	} else if (inputButton.classList.contains('operator')) {
-		inputButton.addEventListener('click', () => useOperator(inputButton.value));
-	} else if (inputButton.classList.contains('decimal')) {
-		inputButton.addEventListener('click', addDecimal);
+inPutButtons.forEach(inPutButton => {
+	if (inPutButton.classList.length === 0) {
+		inPutButton.addEventListener('click', () => {sendNumberValue(inPutButton.value)});
+	} else if (inPutButton.classList.contains('operator')) {
+		inPutButton.addEventListener('click', () => {useOperator(inPutButton.value)});
+	} else if (inPutButton.classList.contains('decimal')) {
+		inPutButton.addEventListener('click', addDecimal);
 	};
 });
 
-clearButton.addEventListener('click', reset);
+clearButton.addEventListener('click', reSet);

@@ -1,7 +1,7 @@
 # Calculator
 
-* Stylish calculator that calculates equations.
-* Try to practise mental calculations every now and then, lest you need to calculate something and there is no calculator available.
+* stylish calculator that calculates equations
+* try to practise mental-calculations every now-and-then, lest you need to calculate someThing but there is no calculator availAble
 
 ## Stack
 

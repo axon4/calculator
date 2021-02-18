@@ -1,5 +1,5 @@
 html {
-	box-sizing: border-box
+	box-sizing: border-box;
 }
 
 body {
@@ -8,14 +8,14 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background: linear-gradient(to right, #0F2027, #203A43, #2C5364)
+	background: linear-gradient(to right, #0F2027, #203A43, #2C5364);
 }
 
 .calculator {
 	width: 400px;
 	background-color: white;
 	border-radius: 12px;
-	box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.6)
+	box-shadow: 0 5px 30px -5px rgba(0, 0, 0, 0.6);
 }
 
 .calculator-display {
@@ -25,7 +25,7 @@ body {
 	align-items: center;
 	background-color: black;
 	border-radius: 10px 10px 0 0;
-	color: white
+	color: white;
 }
 
 .calculator-display h1 {
@@ -34,7 +34,7 @@ body {
 	font-size: 45px;
 	font-weight: 100;
 	font-family: 'Lucida Console', sans-serif;
-	overflow-x: auto
+	overflow-x: auto;
 }
 
 ::-webkit-scrollbar {
@@ -46,11 +46,11 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-	background: #888;
+	background: #888888;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-	background: #555;
+	background: #555555;
 }
 
 .calculator-buttons {
@@ -67,34 +67,34 @@ button {
 	border-radius: 5px;
 	font-size: 20px;
 	font-weight: 100;
-	cursor: pointer
+	cursor: pointer;
 }
 
 button:hover {
-	filter: brightness(110%)
+	filter: brightness(110%);
 }
 
 button:active {
-	transform: translateY(1px)
+	transform: translateY(1px);
 }
 
 button:focus {
-	outline: none
+	outline: none;
 }
 
 .operator {
 	background-color: grey;
 	color: white;
-	font-size: 30px
+	font-size: 30px;
 }
 
 .clear {
 	background-color: rgb(255, 40, 40);
-	color: white
+	color: white;
 }
 
 .clear:hover {
-	filter: brightness(90%)
+	filter: brightness(90%);
 }
 
 .equals-sign {
@@ -103,10 +103,9 @@ button:focus {
 	background-color: rgb(13, 206, 87);
 }
 
-/* Media Query: Large Smartphone (Vertical) */
-
+/* media-query: large smartPhone (vertical) */
 @media screen and (max-width: 600px) {
 	.calculator {
-		width: 95%
+		width: 95%;
 	}
 }
